@@ -1,22 +1,5 @@
 # Proyecto Laravel 10 con AdminLTE3
 
-<p align="center">
-  <a href="https://github.com/usuario/nombre-repositorio/actions">
-    <img src="https://github.com/usuario/nombre-repositorio/workflows/tests/badge.svg" alt="Build Status">
-  </a>
-  <a href="https://packagist.org/packages/laravel/framework">
-    <img src="https://img.shields.io/badge/Laravel-v10.x-red" alt="Laravel Version">
-  </a>
-  <a href="https://packagist.org/packages/adminlte">
-    <img src="https://img.shields.io/badge/AdminLTE-v3.x-blue" alt="AdminLTE Version">
-  </a>
-  <a href="https://github.com/usuario/nombre-repositorio/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/usuario/nombre-repositorio" alt="License">
-  </a>
-</p>
-
----
-
 ## Descripción del Proyecto
 
 Este proyecto integra el potente framework **Laravel 10** con la plantilla de administración **AdminLTE3** para crear un entorno de trabajo moderno y profesional. La combinación permite desarrollar aplicaciones web con una interfaz de usuario intuitiva y altamente personalizable.
