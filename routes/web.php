@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\GYMCategoriaController;
+use App\Http\Controllers\GYMClienteController;
+use App\Http\Controllers\GYMInscripcionController;
+use App\Http\Controllers\GYMPromocionController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MetodoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +19,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('layout.block');
-});
 
-Route::get('login', function () {
-    
-});
+Route::get('/', [HomeController::class, 'index'])->name('dashboard.home.index');
 
-Route::get('register', function () {
-    
-});
+Route::get('finanzas/metodos', [MetodoController::class, 'index'])->name('finanzas.metodo.index');
+
+Route::get('gimnasio/categorias', [GYMCategoriaController::class, 'index'])->name('gimnasio.categoria.index');
+Route::get('gimnasio/promociones', [GYMPromocionController::class, 'index'])->name('gimnasio.promocion.index');
+Route::get('gimnasio/clientes', [GYMClienteController::class, 'index'])->name('gimnasio.cliente.index');

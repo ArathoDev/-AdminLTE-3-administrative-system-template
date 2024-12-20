@@ -3,12 +3,12 @@
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FortaGYM</title>
+    <title>Forta GYM - @yield('title')</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -32,7 +32,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link disabled">Ver mi web</a>
+                    <a href="#" class="nav-link disabled">Ver mi web</a>
                 </li>
             </ul>
 
@@ -96,25 +96,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
                with font-awesome or any other icon font library -->
                         <li class="nav-header">DASHBOARD</li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link active">
+                            <a href="{{ route('dashboard.home.index') }}"
+                                class="nav-link {{ Request::routeIs('dashboard.home.index') ? 'active' : '' }}"
+                                onclick="loadPage(event, '{{ route('dashboard.home.index') }}')">
                                 <i class="nav-icon fas fa-home"></i>
-                                <p>
-                                    Home
-                                </p>
+                                <p>Home</p>
                             </a>
                         </li>
                         <li class="nav-header">FINANZAS</li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('finanzas.metodo.index') }}"
+                                class="nav-link {{ Request::routeIs('finanzas.metodo.index') ? 'active' : '' }}"
+                                onclick="loadPage(event, '{{ route('finanzas.metodo.index') }}')">
                                 <i class="nav-icon fas fa-credit-card"></i>
-                                <p>
-                                    Métodos de pago
-                                </p>
+                                <p>Métodos de pago</p>
                             </a>
                         </li>
-                        <li class="nav-header">GIMNASIO</li>
+                        <li class="nav-header">GIMNASIO</li>    
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('gimnasio.categoria.index') }}" class="nav-link {{ Request::routeIs('gimnasio.categoria.index') ? 'active' : '' }}" onclick="loadPage(event, '{{ route('gimnasio.categoria.index') }}')">
                                 <i class="nav-icon fas fa-layer-group"></i>
                                 <p>
                                     Categorias - GYM
@@ -122,7 +122,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('gimnasio.promocion.index') }}" class="nav-link {{ Request::routeIs('gimnasio.promocion.index') ? 'active' : '' }}" onclick="loadPage(event, '{{ route('gimnasio.promocion.index') }}')">
                                 <i class="nav-icon fas fa-clipboard"></i>
                                 <p>
                                     Promociones
@@ -130,7 +130,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('gimnasio.cliente.index') }}" class="nav-link {{ Request::routeIs('gimnasio.cliente.index') ? 'active' : '' }}" onclick="loadPage(event, '{{ route('gimnasio.cliente.index') }}')">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>
                                     Clientes
@@ -181,7 +181,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-dolly-flatbed"></i>
                                 <p>
-                                    Vender
+                                    Ventas
                                 </p>
                             </a>
                         </li>
@@ -193,112 +193,60 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <div class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1 class="m-0">Index</h1>
-                        </div><!-- /.col -->
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Index</li>
-                            </ol>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </div>
-            <!-- /.content-header -->
-
-            <!-- Main content -->
-            <div class="content">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up the bulk of the
-                                        card's
-                                        content.
-                                    </p>
-
-                                    <a href="#" class="card-link">Card link</a>
-                                    <a href="#" class="card-link">Another link</a>
-                                </div>
-                            </div>
-
-                            <div class="card card-primary card-outline">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-
-                                    <p class="card-text">
-                                        Some quick example text to build on the card title and make up the bulk of the
-                                        card's
-                                        content.
-                                    </p>
-                                    <a href="#" class="card-link">Card link</a>
-                                    <a href="#" class="card-link">Another link</a>
-                                </div>
-                            </div><!-- /.card -->
-                        </div>
-                        <!-- /.col-md-6 -->
-                        <div class="col-lg-6">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h5 class="m-0">Featured</h5>
-                                </div>
-                                <div class="card-body">
-                                    <h6 class="card-title">Special title treatment</h6>
-
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional
-                                        content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-
-                            <div class="card card-primary card-outline">
-                                <div class="card-header">
-                                    <h5 class="m-0">Featured</h5>
-                                </div>
-                                <div class="card-body">
-                                    <h6 class="card-title">Special title treatment</h6>
-
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional
-                                        content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.col-md-6 -->
-                    </div>
-                    <!-- /.row -->
-
-                </div><!-- /.container-fluid -->
-            </div>
-            <!-- /.content -->
+        <div class="content-wrapper" id="content-wrapper">
+            @yield('content-englobal')
         </div>
         <!-- /.content-wrapper -->
 
-
-        <!-- Main Footer -->
-        <footer class="main-footer">
-            <!-- To the right -->
-            <div class="float-right d-none d-sm-inline">
-                Anything you want
-            </div>
-            <!-- Default to the left -->
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
-            reserved.
-        </footer>
     </div>
     <!-- ./wrapper -->
 
     <!-- REQUIRED SCRIPTS -->
+
+    
+    <script>
+        function loadPage(event, url) {
+            event.preventDefault(); // Evita que la página se recargue
+
+            // Realiza la solicitud AJAX
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) throw new Error('Error al cargar la página');
+                    return response.text();
+                })
+                .then(html => {
+                    // Extrae solo el contenido de @yield('content-englobal') del HTML
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const newContent = doc.querySelector('#content-wrapper').innerHTML;
+
+                    // Actualiza el contenido de la página sin recargarla
+                    contentWrapper.innerHTML = newContent;
+
+                    // Actualiza el estado activo del menú aside
+                    updateActiveMenu(url);
+                })
+                .catch(error => {
+                    console.error(error);
+                    contentWrapper.innerHTML = '<p class="text-danger">Error al cargar el contenido.</p>';
+                });
+        }
+
+        function updateActiveMenu(url) {
+            // Elimina la clase 'active' de todos los enlaces del menú
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+
+            // Encuentra el enlace correspondiente a la URL y añade la clase 'active'
+            const activeLink = document.querySelector(`.nav-link[href="${url}"]`);
+            if (activeLink) activeLink.classList.add('active');
+        }
+
+        // Maneja eventos del historial del navegador
+        window.addEventListener('popstate', () => {
+            const currentUrl = location.href;
+            loadPage(null, currentUrl);
+        });
+    </script>
 
     <!-- jQuery -->
     <script src="{{ asset('AdminLTE3/plugins/jquery/jquery.min.js') }}"></script>
@@ -306,6 +254,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="{{ asset('AdminLTE3/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('AdminLTE3/dist/js/adminlte.min.js') }}"></script>
+
 </body>
 
 </html>
