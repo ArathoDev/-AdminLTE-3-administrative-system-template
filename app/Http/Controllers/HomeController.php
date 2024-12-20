@@ -12,9 +12,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-        if (request()->ajax()) {
-            return view('dashboard.home.index')->renderSections()['content-englobal'];
-        }
         return view('dashboard.home.index');
     }
 

@@ -98,7 +98,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <li class="nav-item">
                             <a href="{{ route('dashboard.home.index') }}"
                                 class="nav-link {{ Request::routeIs('dashboard.home.index') ? 'active' : '' }}"
-                                onclick="loadPage(event, '{{ route('dashboard.home.index') }}')">
+                                >
                                 <i class="nav-icon fas fa-home"></i>
                                 <p>Home</p>
                             </a>
@@ -107,14 +107,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <li class="nav-item">
                             <a href="{{ route('finanzas.metodo.index') }}"
                                 class="nav-link {{ Request::routeIs('finanzas.metodo.index') ? 'active' : '' }}"
-                                onclick="loadPage(event, '{{ route('finanzas.metodo.index') }}')">
+                                >
                                 <i class="nav-icon fas fa-credit-card"></i>
                                 <p>Métodos de pago</p>
                             </a>
                         </li>
                         <li class="nav-header">GIMNASIO</li>    
                         <li class="nav-item">
-                            <a href="{{ route('gimnasio.categoria.index') }}" class="nav-link {{ Request::routeIs('gimnasio.categoria.index') ? 'active' : '' }}" onclick="loadPage(event, '{{ route('gimnasio.categoria.index') }}')">
+                            <a href="{{ route('gimnasio.categoria.index') }}" class="nav-link {{ Request::routeIs('gimnasio.categoria.index') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-layer-group"></i>
                                 <p>
                                     Categorias - GYM
@@ -122,7 +122,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('gimnasio.promocion.index') }}" class="nav-link {{ Request::routeIs('gimnasio.promocion.index') ? 'active' : '' }}" onclick="loadPage(event, '{{ route('gimnasio.promocion.index') }}')">
+                            <a href="{{ route('gimnasio.promocion.index') }}" class="nav-link {{ Request::routeIs('gimnasio.promocion.index') ? 'active' : '' }}" >
                                 <i class="nav-icon fas fa-clipboard"></i>
                                 <p>
                                     Promociones
@@ -130,7 +130,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('gimnasio.cliente.index') }}" class="nav-link {{ Request::routeIs('gimnasio.cliente.index') ? 'active' : '' }}" onclick="loadPage(event, '{{ route('gimnasio.cliente.index') }}')">
+                            <a href="{{ route('gimnasio.cliente.index') }}" class="nav-link {{ Request::routeIs('gimnasio.cliente.index') ? 'active' : '' }}" >
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>
                                     Clientes
@@ -205,33 +205,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     
     <script>
-        function loadPage(event, url) {
-            event.preventDefault(); // Evita que la página se recargue
-
-            // Realiza la solicitud AJAX
-            fetch(url)
-                .then(response => {
-                    if (!response.ok) throw new Error('Error al cargar la página');
-                    return response.text();
-                })
-                .then(html => {
-                    // Extrae solo el contenido de @yield('content-englobal') del HTML
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(html, 'text/html');
-                    const newContent = doc.querySelector('#content-wrapper').innerHTML;
-
-                    // Actualiza el contenido de la página sin recargarla
-                    contentWrapper.innerHTML = newContent;
-
-                    // Actualiza el estado activo del menú aside
-                    updateActiveMenu(url);
-                })
-                .catch(error => {
-                    console.error(error);
-                    contentWrapper.innerHTML = '<p class="text-danger">Error al cargar el contenido.</p>';
-                });
-        }
-
         function updateActiveMenu(url) {
             // Elimina la clase 'active' de todos los enlaces del menú
             document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
@@ -240,12 +213,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
             const activeLink = document.querySelector(`.nav-link[href="${url}"]`);
             if (activeLink) activeLink.classList.add('active');
         }
-
-        // Maneja eventos del historial del navegador
-        window.addEventListener('popstate', () => {
-            const currentUrl = location.href;
-            loadPage(null, currentUrl);
-        });
     </script>
 
     <!-- jQuery -->

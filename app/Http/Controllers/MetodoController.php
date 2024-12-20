@@ -11,9 +11,6 @@ class MetodoController extends Controller
      */
     public function index()
     {
-        if (request()->ajax()) {
-            return view('finanzas.metodo.index')->renderSections()['content-englobal'];
-        }
         return view('finanzas.metodo.index');
     }
 
