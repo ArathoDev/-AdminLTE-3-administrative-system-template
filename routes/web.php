@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\finanzas\MetodoController as FinanzasMetodoController;
+use App\Http\Controllers\gimnasio\CategoriaController;
+use App\Http\Controllers\gimnasio\ClienteController;
+use App\Http\Controllers\gimnasio\PromocionController;
 use App\Http\Controllers\GYMCategoriaController;
 use App\Http\Controllers\GYMClienteController;
 use App\Http\Controllers\GYMInscripcionController;
@@ -22,8 +26,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('dashboard.home.index');
 
-Route::get('finanzas/metodos', [MetodoController::class, 'index'])->name('finanzas.metodo.index');
+Route::get('finanzas/metodos', [FinanzasMetodoController::class, 'index'])->name('finanzas.metodo.index');
 
-Route::get('gimnasio/categorias', [GYMCategoriaController::class, 'index'])->name('gimnasio.categoria.index');
-Route::get('gimnasio/promociones', [GYMPromocionController::class, 'index'])->name('gimnasio.promocion.index');
-Route::get('gimnasio/clientes', [GYMClienteController::class, 'index'])->name('gimnasio.cliente.index');
+Route::get('gimnasio/categorias', [CategoriaController::class, 'index'])->name('gimnasio.categoria.index');
+Route::get('gimnasio/promociones', [PromocionController::class, 'index'])->name('gimnasio.promocion.index');
+Route::get('gimnasio/clientes', [ClienteController::class, 'index'])->name('gimnasio.cliente.index');

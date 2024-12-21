@@ -10,6 +10,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Forta GYM - @yield('title')</title>
 
+    <link rel="icon" href="{{ asset('AdminLTE3/dist/img/logo-gym.png') }}">
+
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -17,6 +19,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="{{ asset('AdminLTE3/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('AdminLTE3/dist/css/adminlte.min.css') }}">
+
+    <!-- Styles -->
+    @yield('styles')
 
 </head>
 
@@ -30,9 +35,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
                             class="fas fa-bars"></i></a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link disabled">Ver mi web</a>
                 </li>
             </ul>
 
@@ -71,7 +73,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <aside class="main-sidebar sidebar-dark-primary elevation-2"
             style="position: fixed; top:0; height: 100vh; padding-bottom: 10px;">
             <!-- Brand Logo -->
-            <a href="#" class="brand-link text-center">
+            <a href="#" class="brand-link">
+                <img src="{{asset('AdminLTE3/dist/img/logo-gym.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                    style="opacity: .8">
                 <span class="brand-text font-weight-light">Forta GYM</span>
             </a>
 
@@ -97,8 +101,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <li class="nav-header">DASHBOARD</li>
                         <li class="nav-item">
                             <a href="{{ route('dashboard.home.index') }}"
-                                class="nav-link {{ Request::routeIs('dashboard.home.index') ? 'active' : '' }}"
-                                >
+                                class="nav-link {{ Request::routeIs('dashboard.home.index') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-home"></i>
                                 <p>Home</p>
                             </a>
@@ -106,23 +109,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <li class="nav-header">FINANZAS</li>
                         <li class="nav-item">
                             <a href="{{ route('finanzas.metodo.index') }}"
-                                class="nav-link {{ Request::routeIs('finanzas.metodo.index') ? 'active' : '' }}"
-                                >
+                                class="nav-link {{ Request::routeIs('finanzas.metodo.index') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-credit-card"></i>
                                 <p>Métodos de pago</p>
                             </a>
                         </li>
-                        <li class="nav-header">GIMNASIO</li>    
+                        <li class="nav-header">GIMNASIO</li>
                         <li class="nav-item">
-                            <a href="{{ route('gimnasio.categoria.index') }}" class="nav-link {{ Request::routeIs('gimnasio.categoria.index') ? 'active' : '' }}">
+                            <a href="{{ route('gimnasio.categoria.index') }}"
+                                class="nav-link {{ Request::routeIs('gimnasio.categoria.index') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-layer-group"></i>
                                 <p>
-                                    Categorias - GYM
+                                    Categorias
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('gimnasio.promocion.index') }}" class="nav-link {{ Request::routeIs('gimnasio.promocion.index') ? 'active' : '' }}" >
+                            <a href="{{ route('gimnasio.promocion.index') }}"
+                                class="nav-link {{ Request::routeIs('gimnasio.promocion.index') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-clipboard"></i>
                                 <p>
                                     Promociones
@@ -130,7 +134,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('gimnasio.cliente.index') }}" class="nav-link {{ Request::routeIs('gimnasio.cliente.index') ? 'active' : '' }}" >
+                            <a href="{{ route('gimnasio.cliente.index') }}"
+                                class="nav-link {{ Request::routeIs('gimnasio.cliente.index') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>
                                     Clientes
@@ -165,7 +170,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-store"></i>
                                 <p>
-                                    Categorias - Tienda
+                                    Categorias
                                 </p>
                             </a>
                         </li>
@@ -203,7 +208,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- REQUIRED SCRIPTS -->
 
-    
+
     <script>
         function updateActiveMenu(url) {
             // Elimina la clase 'active' de todos los enlaces del menú
