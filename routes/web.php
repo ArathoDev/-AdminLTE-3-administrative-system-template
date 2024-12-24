@@ -27,6 +27,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('dashboard.home.index');
 
 Route::get('finanzas/metodos', [FinanzasMetodoController::class, 'index'])->name('finanzas.metodo.index');
+Route::get('finanzas/metodos/all', [FinanzasMetodoController::class, 'all'])->name('finanzas.metodo.all');
 
 Route::get('gimnasio/categorias', [CategoriaController::class, 'index'])->name('gimnasio.categoria.index');
 Route::get('gimnasio/promociones', [PromocionController::class, 'index'])->name('gimnasio.promocion.index');

@@ -20,7 +20,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('AdminLTE3/dist/css/adminlte.min.css') }}">
 
-    <!-- Styles -->
+    <!-- ESTILOS ADICIONALES PARA CADA VISTA -->
     @yield('styles')
 
 </head>
@@ -226,6 +226,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="{{ asset('AdminLTE3/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('AdminLTE3/dist/js/adminlte.min.js') }}"></script>
+
+    {{-- SCRIPS ADICIONALES PARA CADA VISTA --}}
+    @yield('scripts')
 
 </body>
 

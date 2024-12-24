@@ -2,7 +2,7 @@
 @section('title', 'Métodos de pago')
 
 @section('styles')
-
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
 @endsection
 
 @section('content-englobal')
@@ -66,10 +66,10 @@
                         <button type="button" class="btn btn-primary">Registrar nuevo <i class="fas fa-plus"></i></button>
                     </div>
                     <div class="col-md-12">
-                        <div class="card">
+                        <div class="card p-3">
                             <div>
                                 <div class="table-responsive">
-                                    <table class="table table-hover">
+                                    <table class="table table-hover" id="metodos-table">
                                         <thead class="bg-dark">
                                             <th>Nombre</th>
                                             <th>Descripción</th>
@@ -77,28 +77,21 @@
                                             <th></th>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Efectivo</td>
-                                                <td>Método de pago con dinero en físico</td>
-                                                <td>
-                                                    <img src="https://cdn.iconscout.com/icon/free/png-256/free-cashapp-3521324-2944743.png?f=webp" alt="img-efectivo" width="50">
-                                                </td>
-                                                <td>
-                                                    <a href="#" class="btn btn-success"><i class="fas fa-edit"></i></a>
-                                                    <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Yape</td>
-                                                <td>Método de pago con dinero en digital</td>
-                                                <td>
-                                                    <img src="https://logosenvector.com/logo/img/yape-bcp-4390.jpg" alt="img-yape" width="50">
-                                                </td>
-                                                <td>
-                                                    <a href="#" class="btn btn-success"><i class="fas fa-edit"></i></a>
-                                                    <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                                                </td>
-                                            </tr>
+                                            @foreach ($metodos as $metodo)
+                                                <tr>
+                                                    <td>{{ $metodo->nombre }}</td>
+                                                    <td>{{ $metodo->descripcion }}</td>
+                                                    <td>
+                                                        {{ $metodo->imagen }}
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <div class="d-flex justify-content-center gap-2">
+                                                            <a href="#" class="btn btn-success mr-1"><i class="fas fa-edit"></i></a>
+                                                            <a href="#" class="btn btn-danger ml-1"><i class="fas fa-trash-alt"></i></a>
+                                                        </div>
+                                                    </td>      
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -114,4 +107,9 @@
         <!-- /.content -->
     </div>
     <!-- /.content englobal -->
+@endsection
+
+
+@section('scripts')
+    
 @endsection
